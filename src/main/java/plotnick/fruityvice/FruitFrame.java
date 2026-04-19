@@ -15,36 +15,36 @@ public class FruitFrame extends JFrame
 
         setLayout(new GridBagLayout());
 
-        final JLabel pic = new JLabel("FRUIT PIC COMING SOON");
+        final JLabel pic = new JLabel();
 
         final JTextField searchBox = new JTextField("Strawberry");
 
         final JLabel familyLabel = new JLabel("Family");
-        final JLabel familyField = new JLabel();
+        final JLabel familyField = new JLabel(" ");
 
         final JLabel orderLabel = new JLabel("Order");
-        final JLabel orderField = new JLabel();
+        final JLabel orderField = new JLabel(" ");
 
         final JLabel genusLabel = new JLabel("Genus");
-        final JLabel genusField = new JLabel();
+        final JLabel genusField = new JLabel(" ");
 
         final JLabel caloriesLabel = new JLabel("Calories");
-        final JLabel caloriesField = new JLabel();
+        final JLabel caloriesField = new JLabel(" ");
 
         final JLabel fatLabel = new JLabel("Fat");
-        final JLabel fatField = new JLabel();
+        final JLabel fatField = new JLabel(" ");
 
         final JLabel sugarLabel = new JLabel("Sugar");
-        final JLabel sugarField = new JLabel();
+        final JLabel sugarField = new JLabel(" ");
 
         final JLabel carbsLabel = new JLabel("Carbs");
-        final JLabel carbsField = new JLabel();
+        final JLabel carbsField = new JLabel(" ");
 
         final JLabel proteinLabel = new JLabel("Protein");
-        final JLabel proteinField = new JLabel();
+        final JLabel proteinField = new JLabel(" ");
 
         final JLabel carbLabel = new JLabel("Protein");
-        final JLabel carbField = new JLabel();
+        final JLabel carbField = new JLabel(" ");
 
         JButton button = new JButton("Search");
 
@@ -75,14 +75,16 @@ public class FruitFrame extends JFrame
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.gridwidth = 2;
-        constraints.ipadx = 10;
-        constraints.fill = GridBagConstraints.BOTH;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
         add(searchBox, constraints);
+
 
         constraints = new GridBagConstraints();
         constraints.gridx = 0;
         constraints.gridy = 1;
-        constraints.ipadx = 10;
+        constraints.gridheight = 8;
+        constraints.weightx = 1;
+        constraints.weighty = 1;
         constraints.fill = GridBagConstraints.BOTH;
         add(pic, constraints);
 
@@ -155,7 +157,7 @@ public class FruitFrame extends JFrame
         constraints.gridy = 5;
         constraints.ipadx = 10;
         constraints.fill = GridBagConstraints.HORIZONTAL;
-        add(familyField, constraints);
+        add(fatField, constraints);
 
         constraints = new GridBagConstraints();
         constraints.gridx = 1;
@@ -202,10 +204,8 @@ public class FruitFrame extends JFrame
         constraints = new GridBagConstraints();
         constraints.gridx = 2;
         constraints.gridy = 0;
-        constraints.ipadx = 7;
-        constraints.anchor = GridBagConstraints.NORTH;
+        constraints.anchor = GridBagConstraints.EAST;
         add(button, constraints);
-
 
 
 
