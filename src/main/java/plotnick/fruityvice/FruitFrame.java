@@ -67,18 +67,27 @@ public class FruitFrame extends JFrame
 
         GridBagConstraints constraints;
 
+        // Row 0 — search box
         constraints = new GridBagConstraints();
         constraints.gridx = 0;
         constraints.gridy = 0;
-        constraints.gridwidth = 2;
+        constraints.gridwidth = 1;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         add(searchBox, constraints);
+
+
+
+// Row 0 — button
+        constraints = new GridBagConstraints();
+        constraints.gridx = 2;
+        constraints.gridy = 0;
+        constraints.anchor = GridBagConstraints.EAST;
+        add(button, constraints);
 
 
         constraints = new GridBagConstraints();
         constraints.gridx = 0;
         constraints.gridy = 1;
-        constraints.gridheight = 8;
         constraints.weightx = 1;
         constraints.weighty = 1;
         constraints.fill = GridBagConstraints.BOTH;
@@ -193,15 +202,11 @@ public class FruitFrame extends JFrame
         constraints = new GridBagConstraints();
         constraints.gridx = 2;
         constraints.gridy = 8;
-        constraints.ipadx = 7;
+        constraints.ipadx = 10;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         add(proteinField, constraints);
 
-        constraints = new GridBagConstraints();
-        constraints.gridx = 2;
-        constraints.gridy = 0;
-        constraints.anchor = GridBagConstraints.EAST;
-        add(button, constraints);
+
 
 
 
