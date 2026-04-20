@@ -65,11 +65,11 @@ public class FruitController
         family.setText(fruit.family());
         order.setText(fruit.order());
         genus.setText(fruit.genus());
-        calories.setText(String.valueOf(String.valueOf(calories.getText())));
-        fat.setText(String.valueOf(String.valueOf(fat.getText())));
-        sugar.setText(String.valueOf(String.valueOf(sugar.getText())));
-        carbs.setText(String.valueOf(String.valueOf(carbs.getText())));
-        proteins.setText(String.valueOf(String.valueOf(proteins.getText())));
+        calories.setText(String.valueOf(fruit.nutritions().calories()));
+        fat.setText(String.valueOf(fruit.nutritions().fat()));
+        sugar.setText(String.valueOf(fruit.nutritions().sugar()));
+        carbs.setText(String.valueOf(fruit.nutritions().carbohydrates()));
+        proteins.setText(String.valueOf(fruit.nutritions().protein()));
 
         try
         {

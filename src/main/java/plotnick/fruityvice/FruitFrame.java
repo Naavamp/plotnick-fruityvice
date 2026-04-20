@@ -49,11 +49,7 @@ public class FruitFrame extends JFrame
         JButton button = new JButton("Search");
 
 
-
-
         FruityService service = new FruityServiceFactory().create();
-
-
 
         FruitController controller = new FruitController(service, searchBox, pic, familyField, orderField, genusField,
                                                 caloriesField, fatField, carbField, sugarField, proteinField);
