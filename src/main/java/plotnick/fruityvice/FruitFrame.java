@@ -66,8 +66,7 @@ public class FruitFrame extends JFrame
         });
 
         GridBagConstraints constraints;
-
-        // Row 0 — search box
+        
         constraints = new GridBagConstraints();
         constraints.gridx = 0;
         constraints.gridy = 0;
@@ -76,8 +75,6 @@ public class FruitFrame extends JFrame
         add(searchBox, constraints);
 
 
-
-// Row 0 — button
         constraints = new GridBagConstraints();
         constraints.gridx = 2;
         constraints.gridy = 0;

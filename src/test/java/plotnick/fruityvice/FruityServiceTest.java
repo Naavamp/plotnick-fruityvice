@@ -13,15 +13,15 @@ class FruityServiceTest
         FruityService service = new FruityServiceFactory().create();
 
         //when
-        Fruit Fruit = service.getFruit("Strawberry").blockingGet();
+        Fruit fruit = service.getFruit("Strawberry").blockingGet();
 
         //then
-        assertEquals("Strawberry", Fruit.name());
-        assertEquals(3, Fruit.id());
-        assertEquals("Rosaceae", Fruit.family());
-        assertEquals("Rosales", Fruit.order());
-        assertEquals("Fragaria", Fruit.genus());
-        Nutritions nutritions = Fruit.nutritions();
+        assertEquals("Strawberry", fruit.name());
+        assertEquals(3, fruit.id());
+        assertEquals("Rosaceae", fruit.family());
+        assertEquals("Rosales", fruit.order());
+        assertEquals("Fragaria", fruit.genus());
+        Nutritions nutritions = fruit.nutritions();
         assertEquals(29, nutritions.calories());
         assertEquals(0.4, nutritions.fat());
         assertEquals(5.4, nutritions.sugar());

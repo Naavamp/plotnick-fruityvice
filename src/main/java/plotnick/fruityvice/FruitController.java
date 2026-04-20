@@ -17,7 +17,7 @@ public class FruitController
     private JLabel image;
     private JLabel family;
     private JLabel order;
-    private JLabel genus;;
+    private JLabel genus;
     private JLabel calories;
     private JLabel fat;
     private JLabel sugar;
@@ -26,7 +26,8 @@ public class FruitController
 
 
 
-    public FruitController(FruityService service, JTextField searchField, JLabel image, JLabel family, JLabel order, JLabel genus,
+    public FruitController(FruityService service, JTextField searchField, JLabel image,
+                           JLabel family, JLabel order, JLabel genus,
                            JLabel calories, JLabel fat, JLabel carbs, JLabel sugar, JLabel proteins)
     {
         this.service = service;
