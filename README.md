@@ -2,7 +2,7 @@
 
 Created an interface that the user enters a fruit and it pulls the facts about that fruit 
 an online site called fruityvice.com
-The goal is for it to also into the a picture of the fruit currently it just pulls a random picture
+The goal is for it to also show picture of the fruit currently it just pulls a random picture
 
 ### Screenshots
 
