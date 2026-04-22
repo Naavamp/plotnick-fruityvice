@@ -1,5 +1,6 @@
 package plotnick.fruityvice.unsplash;
 
+import com.andrewoid.apikeys.ApiKey;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -11,10 +12,16 @@ public class UnsplashServiceTest
     public void search()
     {
         //given
+        ApiKey apiKey = new ApiKey();
+        String keyString = apiKey.get();
+
         UnsplashService service = new UnsplashServiceFactory().create();
 
         //when
-        Photos photos = service.search("strawberry").blockingGet();
+        Photos photos = service.search(
+                keyString,
+                "strawberry"
+                ).blockingGet();
 
         //then
         assertNotNull(photos.results.get(0).urls.small);
