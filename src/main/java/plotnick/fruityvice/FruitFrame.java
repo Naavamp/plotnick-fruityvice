@@ -43,16 +43,13 @@ public class FruitFrame extends JFrame
         final JLabel proteinLabel = new JLabel("Protein");
         final JLabel proteinField = new JLabel(" ");
 
-        final JLabel carbLabel = new JLabel("Protein");
-        final JLabel carbField = new JLabel(" ");
-
         JButton button = new JButton("Search");
 
 
         FruityService service = new FruityServiceFactory().create();
 
         FruitController controller = new FruitController(service, searchBox, pic, familyField, orderField, genusField,
-                                                caloriesField, fatField, carbField, sugarField, proteinField);
+                                                caloriesField, fatField, carbsField, sugarField, proteinField);
 
         button.addActionListener(new ActionListener()
         {
