@@ -2,5 +2,5 @@ package plotnick.fruityvice.unsplash;
 
 public class Results
 {
-    Urls urls;
+    public Urls urls;
 }

@@ -1,7 +1,10 @@
 package plotnick.fruityvice;
 
+import com.andrewoid.apikeys.ApiKey;
+import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
+import plotnick.fruityvice.unsplash.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -23,7 +26,6 @@ public class FruitController
     private JLabel sugar;
     private JLabel carbs;
     private JLabel proteins;
-
 
 
     public FruitController(FruityService service, JTextField searchField, JLabel image,
@@ -61,6 +63,7 @@ public class FruitController
 
     }
 
+
     private void handleResponse(Fruit fruit)
     {
         family.setText(fruit.family());
@@ -72,16 +75,30 @@ public class FruitController
         carbs.setText(String.valueOf(fruit.nutritions().carbohydrates()));
         proteins.setText(String.valueOf(fruit.nutritions().protein()));
 
-        try
-        {
-            ImageIcon imageIcon = new ImageIcon(new URL("https://picsum.photos/600/600"));
-            image.setIcon(imageIcon);
-        } catch (MalformedURLException e)
-        {
-            e.printStackTrace();
-        }
+        String fruitName = searchField.getText();
+        fetchImage(fruitName);
+
+
 
     }
 
+    private void fetchImage(String query)
+    {
+            try
+            {
+                UnsplashService unsplash = new UnsplashServiceFactory().create();
+                Single<Photos> photos = unsplash.search(new ApiKey().get(), query);
 
+                String urlString = ;
+                ImageIcon icon = new ImageIcon(new URL(urlString));
+
+                image.setIcon(icon);
+
+            } catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+
+    }
 }
+
