@@ -1,7 +1,10 @@
 package plotnick.fruityvice;
 
+import com.andrewoid.apikeys.ApiKey;
+import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
+import plotnick.fruityvice.unsplash.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -13,6 +16,8 @@ public class FruitController
 {
 
     private FruityService service;
+    private UnsplashService unsplashService;
+
     private JTextField searchField;
     private JLabel image;
     private JLabel family;
@@ -25,12 +30,12 @@ public class FruitController
     private JLabel proteins;
 
 
-
-    public FruitController(FruityService service, JTextField searchField, JLabel image,
+    public FruitController(FruityService service, UnsplashService unsplashService, JTextField searchField, JLabel image,
                            JLabel family, JLabel order, JLabel genus,
                            JLabel calories, JLabel fat, JLabel carbs, JLabel sugar, JLabel proteins)
     {
         this.service = service;
+        this.unsplashService = unsplashService;
         this.searchField = searchField;
         this.image = image;
         this.family = family;
@@ -47,21 +52,33 @@ public class FruitController
     public void doSearch()
     {
         String fruitName = searchField.getText();
-        Disposable disposable = service.getFruit(fruitName)
-
+        Disposable disposableFruit = service.getFruit(fruitName)
                 // tells Rx to request the data on a background Thread
                 .subscribeOn(Schedulers.io())
 
                 // tells Rx to handle the response on Swing's main Thread
                 .observeOn(Schedulers.from(SwingUtilities::invokeLater))
                 .subscribe(
-                        (response) -> handleResponse(response),
+                        (this::handleResponseFruit),
                         Throwable::printStackTrace);
 
+        ApiKey apiKey = new ApiKey();
+        String keyString = apiKey.get();
+
+        Disposable disposableUnsplash = unsplashService.search(keyString, fruitName)
+                // tells Rx to request the data on a background Thread
+                .subscribeOn(Schedulers.io())
+
+                // tells Rx to handle the response on Swing's main Thread
+                .observeOn(Schedulers.from(SwingUtilities::invokeLater))
+                .subscribe(
+                        (this::handleResponsePhotos),
+                        Throwable::printStackTrace);
 
     }
 
-    private void handleResponse(Fruit fruit)
+
+    private void handleResponseFruit(Fruit fruit)
     {
         family.setText(fruit.family());
         order.setText(fruit.order());
@@ -72,16 +89,21 @@ public class FruitController
         carbs.setText(String.valueOf(fruit.nutritions().carbohydrates()));
         proteins.setText(String.valueOf(fruit.nutritions().protein()));
 
-        try
-        {
-            ImageIcon imageIcon = new ImageIcon(new URL("https://picsum.photos/600/600"));
-            image.setIcon(imageIcon);
-        } catch (MalformedURLException e)
-        {
-            e.printStackTrace();
-        }
 
     }
 
+    private void handleResponsePhotos(Photos photos)
+    {
+            try
+            {
+                ImageIcon icon = new ImageIcon(new URL(photos.results()[0].urls().small()));
+                image.setIcon(icon);
 
+            } catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+
+    }
 }
+
