@@ -5,7 +5,6 @@ an online site called fruityvice.com and it pulls a picture of that fruit with i
 
 ### Screenshots
 
-![Screenshot](Screenshots/screenshotfruityvice.png)
 ![Screenshot](Screenshots/ScreenshotwithFruit.png)
 
 
