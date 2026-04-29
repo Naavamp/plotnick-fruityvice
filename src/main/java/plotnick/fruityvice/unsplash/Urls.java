@@ -1,7 +1,7 @@
 package plotnick.fruityvice.unsplash;
 
-public class Urls
+public record Urls(String small)
 {
-    String small;
+
 
 }

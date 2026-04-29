@@ -1,6 +1,6 @@
 package plotnick.fruityvice.unsplash;
 
-public class Results
+public record Results(Urls urls)
 {
-    public Urls urls;
+
 }

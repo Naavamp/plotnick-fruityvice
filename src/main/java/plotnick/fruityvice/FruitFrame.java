@@ -1,5 +1,8 @@
 package plotnick.fruityvice;
 
+import plotnick.fruityvice.unsplash.UnsplashService;
+import plotnick.fruityvice.unsplash.UnsplashServiceFactory;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,7 +12,7 @@ public class FruitFrame extends JFrame
 {
     public FruitFrame()
     {
-        setSize(500, 500);
+        setSize(1000, 1000);
         setTitle("Fruit");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -47,8 +50,9 @@ public class FruitFrame extends JFrame
 
 
         FruityService service = new FruityServiceFactory().create();
+        UnsplashService unsplashService = new UnsplashServiceFactory().create();
 
-        FruitController controller = new FruitController(service, searchBox, pic, familyField, orderField, genusField,
+        FruitController controller = new FruitController(service, unsplashService, searchBox, pic, familyField, orderField, genusField,
                                                 caloriesField, fatField, carbsField, sugarField, proteinField);
 
         button.addActionListener(new ActionListener()
@@ -67,136 +71,153 @@ public class FruitFrame extends JFrame
         constraints = new GridBagConstraints();
         constraints.gridx = 0;
         constraints.gridy = 0;
-        constraints.gridwidth = 1;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.gridwidth = 3;
+        constraints.fill = GridBagConstraints.BOTH;
+        constraints.anchor = GridBagConstraints.NORTH;
         add(searchBox, constraints);
 
 
         constraints = new GridBagConstraints();
-        constraints.gridx = 2;
+        constraints.gridx = 3;
         constraints.gridy = 0;
-        constraints.anchor = GridBagConstraints.EAST;
+        constraints.anchor = GridBagConstraints.NORTH;
         add(button, constraints);
 
 
         constraints = new GridBagConstraints();
         constraints.gridx = 0;
         constraints.gridy = 1;
-        constraints.weightx = 1;
-        constraints.weighty = 1;
-        constraints.fill = GridBagConstraints.BOTH;
+        constraints.gridwidth = 2;
+        constraints.gridheight = 8;
+        constraints.anchor = GridBagConstraints.NORTH;
         add(pic, constraints);
 
 
         constraints = new GridBagConstraints();
-        constraints.gridx = 1;
+        constraints.gridx = 2;
         constraints.gridy = 1;
         constraints.ipadx = 10;
         constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.anchor = GridBagConstraints.NORTH;
         add(familyLabel, constraints);
 
         constraints = new GridBagConstraints();
-        constraints.gridx = 2;
+        constraints.gridx = 3;
         constraints.gridy = 1;
         constraints.ipadx = 10;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
+
+        constraints.anchor = GridBagConstraints.NORTH;
         add(familyField, constraints);
 
         constraints = new GridBagConstraints();
-        constraints.gridx = 1;
-        constraints.gridy = 2;
-        constraints.ipadx = 10;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        add(orderLabel, constraints);
-
-        constraints = new GridBagConstraints();
         constraints.gridx = 2;
         constraints.gridy = 2;
         constraints.ipadx = 10;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.anchor = GridBagConstraints.NORTH;
+        add(orderLabel, constraints);
+
+        constraints = new GridBagConstraints();
+        constraints.gridx = 3;
+        constraints.gridy = 2;
+        constraints.ipadx = 10;
+        constraints.anchor = GridBagConstraints.NORTH;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         add(orderField, constraints);
 
         constraints = new GridBagConstraints();
-        constraints.gridx = 1;
+        constraints.gridx = 2;
         constraints.gridy = 3;
         constraints.ipadx = 10;
+        constraints.anchor = GridBagConstraints.NORTH;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         add(genusLabel, constraints);
 
         constraints = new GridBagConstraints();
-        constraints.gridx = 2;
+        constraints.gridx = 3;
         constraints.gridy = 3;
         constraints.ipadx = 10;
+        constraints.anchor = GridBagConstraints.NORTH;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         add(genusField, constraints);
 
         constraints = new GridBagConstraints();
-        constraints.gridx = 1;
+        constraints.gridx = 2;
         constraints.gridy = 4;
         constraints.ipadx = 10;
+        constraints.anchor = GridBagConstraints.NORTH;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         add(caloriesLabel, constraints);
 
         constraints = new GridBagConstraints();
-        constraints.gridx = 2;
+        constraints.gridx = 3;
         constraints.gridy = 4;
         constraints.ipadx = 10;
+        constraints.anchor = GridBagConstraints.NORTH;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         add(caloriesField, constraints);
 
         constraints = new GridBagConstraints();
-        constraints.gridx = 1;
+        constraints.gridx = 2;
         constraints.gridy = 5;
         constraints.ipadx = 10;
+        constraints.anchor = GridBagConstraints.NORTH;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         add(fatLabel, constraints);
 
         constraints = new GridBagConstraints();
-        constraints.gridx = 2;
+        constraints.gridx = 3;
         constraints.gridy = 5;
         constraints.ipadx = 10;
+        constraints.anchor = GridBagConstraints.NORTH;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         add(fatField, constraints);
 
         constraints = new GridBagConstraints();
-        constraints.gridx = 1;
+        constraints.gridx = 2;
         constraints.gridy = 6;
         constraints.ipadx = 10;
+        constraints.anchor = GridBagConstraints.NORTH;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         add(sugarLabel, constraints);
 
         constraints = new GridBagConstraints();
-        constraints.gridx = 2;
+        constraints.gridx = 3;
         constraints.gridy = 6;
         constraints.ipadx = 10;
+        constraints.anchor = GridBagConstraints.NORTH;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         add(sugarField, constraints);
 
         constraints = new GridBagConstraints();
-        constraints.gridx = 1;
+        constraints.gridx = 2;
         constraints.gridy = 7;
         constraints.ipadx = 10;
+        constraints.anchor = GridBagConstraints.NORTH;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         add(carbsLabel, constraints);
 
         constraints = new GridBagConstraints();
-        constraints.gridx = 2;
+        constraints.gridx = 3;
         constraints.gridy = 7;
         constraints.ipadx = 10;
+        constraints.anchor = GridBagConstraints.NORTH;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         add(carbsField, constraints);
 
         constraints = new GridBagConstraints();
-        constraints.gridx = 1;
+        constraints.gridx = 2;
         constraints.gridy = 8;
         constraints.ipadx = 10;
+        constraints.anchor = GridBagConstraints.NORTH;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         add(proteinLabel, constraints);
 
         constraints = new GridBagConstraints();
-        constraints.gridx = 2;
+        constraints.gridx = 3;
         constraints.gridy = 8;
         constraints.ipadx = 10;
+        constraints.anchor = GridBagConstraints.NORTH;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         add(proteinField, constraints);
 
