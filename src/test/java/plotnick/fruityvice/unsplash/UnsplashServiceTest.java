@@ -24,7 +24,7 @@ public class UnsplashServiceTest
                 ).blockingGet();
 
         //then
-        assertNotNull(photos.results.get(0).urls.small);
+        assertNotNull(photos.results()[0].urls().small());
 
 
 

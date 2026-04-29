@@ -59,7 +59,7 @@ public class FruitController
                 // tells Rx to handle the response on Swing's main Thread
                 .observeOn(Schedulers.from(SwingUtilities::invokeLater))
                 .subscribe(
-                        (this :: handleResponseFruit),
+                        (this:: handleResponseFruit),
                         Throwable::printStackTrace);
 
         ApiKey apiKey = new ApiKey();
@@ -72,7 +72,7 @@ public class FruitController
                 // tells Rx to handle the response on Swing's main Thread
                 .observeOn(Schedulers.from(SwingUtilities::invokeLater))
                 .subscribe(
-                        (this :: handleResponsePhotos),
+                        (this:: handleResponsePhotos),
                         Throwable::printStackTrace);
 
     }
@@ -88,10 +88,6 @@ public class FruitController
         sugar.setText(String.valueOf(fruit.nutritions().sugar()));
         carbs.setText(String.valueOf(fruit.nutritions().carbohydrates()));
         proteins.setText(String.valueOf(fruit.nutritions().protein()));
-
-        String fruitName = searchField.getText();
-
-
 
 
     }

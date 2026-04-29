@@ -8,7 +8,7 @@ public interface UnsplashService
 {
     @GET("/search/photos")
     Single<Photos> search(
-            @Query("client_id") String client_id,
+            @Query("client_id") String clientId,
             @Query("query") String query);
 
 

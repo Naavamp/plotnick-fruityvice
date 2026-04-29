@@ -52,8 +52,9 @@ public class FruitFrame extends JFrame
         FruityService service = new FruityServiceFactory().create();
         UnsplashService unsplashService = new UnsplashServiceFactory().create();
 
-        FruitController controller = new FruitController(service, unsplashService, searchBox, pic, familyField, orderField, genusField,
-                                                caloriesField, fatField, carbsField, sugarField, proteinField);
+        FruitController controller = new FruitController(service, unsplashService, searchBox, pic, familyField,
+                                                         orderField, genusField, caloriesField, fatField,
+                                                         carbsField, sugarField, proteinField);
 
         button.addActionListener(new ActionListener()
         {
